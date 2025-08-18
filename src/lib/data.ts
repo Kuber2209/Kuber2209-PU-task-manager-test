@@ -1,0 +1,110 @@
+import type { Task, User } from '@/lib/types';
+
+// Mock Users
+export const users: User[] = [
+  { id: 'user_jpt_1', name: 'Dr. Strange', role: 'JPT', avatar: 'https://i.pravatar.cc/150?u=user_jpt_1' },
+  { id: 'user_jpt_2', name: 'Prof. X', role: 'JPT', avatar: 'https://i.pravatar.cc/150?u=user_jpt_2' },
+  { id: 'user_jpt_3', name: 'Tony Stark', role: 'JPT', avatar: 'https://i.pravatar.cc/150?u=user_jpt_3' },
+  { id: 'user_jpt_4', name: 'Diana Prince', role: 'JPT', avatar: 'https://i.pravatar.cc/150?u=user_jpt_4' },
+  { id: 'user_jpt_5', name: 'Bruce Banner', role: 'JPT', avatar: 'https://i.pravatar.cc/150?u=user_jpt_5' },
+  { id: 'user_jpt_6', name: 'Ororo Munroe', role: 'JPT', avatar: 'https://i.pravatar.cc/150?u=user_jpt_6' },
+  { id: 'user_assoc_1', name: 'Peter Parker', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_1' },
+  { id: 'user_assoc_2', name: 'Bruce Wayne', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_2' },
+  { id: 'user_assoc_3', name: 'Clark Kent', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_3' },
+  { id: 'user_assoc_4', name: 'Steve Rogers', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_4' },
+  { id: 'user_assoc_5', name: 'Barry Allen', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_5' },
+  { id: 'user_assoc_6', name: 'Hal Jordan', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_6' },
+  { id: 'user_assoc_7', name: 'Arthur Curry', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_7' },
+  { id: 'user_assoc_8', name: 'Scott Lang', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_8' },
+  { id: 'user_assoc_9', name: 'Wanda Maximoff', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_9' },
+  { id: 'user_assoc_10', name: 'Natasha Romanoff', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_10' },
+  { id: 'user_assoc_11', name: 'Clint Barton', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_11' },
+  { id: 'user_assoc_12', name: 'T\'Challa', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_12' },
+  { id: 'user_assoc_13', name: 'Carol Danvers', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_13' },
+  { id: 'user_assoc_14', name: 'Jean Grey', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_14' },
+  { id: 'user_assoc_15', name: 'Matt Murdock', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_15' },
+  { id: 'user_assoc_16', name: 'Jessica Jones', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_16' },
+  { id: 'user_assoc_17', name: 'Luke Cage', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_17' },
+  { id: 'user_assoc_18', name: 'Danny Rand', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_18' },
+  { id: 'user_assoc_19', name: 'Kamala Khan', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_19' },
+  { id: 'user_assoc_20', name: 'Miles Morales', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_20' },
+  { id: 'user_assoc_21', name: 'Gwen Stacy', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_21' },
+  { id: 'user_assoc_22', name: 'Kate Bishop', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_22' },
+  { id: 'user_assoc_23', name: 'America Chavez', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_23' },
+  { id: 'user_assoc_24', name: 'Riri Williams', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_24' },
+  { id: 'user_assoc_25', name: 'Shuri', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_25' },
+  { id: 'user_assoc_26', name: 'Cassie Lang', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_26' },
+  { id: 'user_assoc_27', name: 'Eli Bradley', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_27' },
+  { id: 'user_assoc_28', name: 'Tommy Shepherd', role: 'Associate', avatar: 'https://i.pravatar.cc/150?u=user_assoc_28' },
+  { id: 'user_jpt_7', name: 'Reed Richards', role: 'JPT', avatar: 'https://i.pravatar.cc/150?u=user_jpt_7' },
+  { id: 'user_jpt_8', name: 'Susan Storm', role: 'JPT', avatar: 'https://i.pravatar.cc/150?u=user_jpt_8' },
+];
+
+// Mock Tasks - Make this a mutable let for in-memory changes
+export let tasks: Task[] = [
+  {
+    id: 'task_1',
+    title: 'Coordinate with tech companies for internship drives',
+    description: 'Reach out to HRs of at least 20 tech companies (startups and MNCs) to schedule pre-placement talks and internship drives for the upcoming semester.',
+    tags: ['outreach', 'coordination', 'internships'],
+    status: 'In Progress',
+    createdBy: 'user_jpt_1',
+    assignedTo: ['user_assoc_1'],
+    requiredAssociates: 2,
+    createdAt: new Date('2023-10-01T10:00:00Z').toISOString(),
+    messages: [
+        { id: 'msg_1', userId: 'user_jpt_1', text: 'Hey team, please start with the list of companies I shared in the drive. Prioritize the ones marked as "high-priority".', createdAt: new Date('2023-10-01T10:05:00Z').toISOString() },
+        { id: 'msg_2', userId: 'user_assoc_1', text: 'Got it, Dr. Strange. I\'ve started drafting the emails.', createdAt: new Date('2023-10-01T10:15:00Z').toISOString() }
+    ]
+  },
+  {
+    id: 'task_2',
+    title: 'Prepare placement report for 2023 batch',
+    description: 'Compile all placement data, including company names, packages offered, and student details. Create a comprehensive report and presentation.',
+    tags: ['reporting', 'data-analysis', 'presentation'],
+    status: 'Completed',
+    createdBy: 'user_jpt_2',
+    assignedTo: ['user_assoc_2'],
+    requiredAssociates: 1,
+    createdAt: new Date('2023-09-15T14:30:00Z').toISOString(),
+    completedAt: new Date('2023-09-30T18:00:00Z').toISOString(),
+    messages: []
+  },
+  {
+    id: 'task_3',
+    title: 'Organize a workshop on resume building',
+    description: 'Plan and execute a workshop for pre-final year students on how to build an effective resume. Invite an industry expert to speak.',
+    tags: ['workshop', 'student-development', 'career'],
+    status: 'Open',
+    createdBy: 'user_jpt_1',
+    assignedTo: [],
+    requiredAssociates: 3,
+    createdAt: new Date('2023-10-05T11:00:00Z').toISOString(),
+    messages: []
+  },
+  {
+    id: 'task_4',
+    title: 'Manage logistics for on-campus interviews',
+    description: 'Book interview rooms, coordinate with company representatives, and ensure all technical requirements (projectors, internet) are met for the upcoming on-campus drives.',
+    tags: ['logistics', 'on-campus', 'interviews'],
+    status: 'Open',
+    createdBy: 'user_jpt_2',
+    assignedTo: [],
+    requiredAssociates: 2,
+    createdAt: new Date('2023-10-06T09:00:00Z').toISOString(),
+    messages: []
+  },
+  {
+    id: 'task_5',
+    title: 'Update the placement portal with new job openings',
+    description: 'Regularly check for new job openings from various sources and update them on the university\'s placement portal with all necessary details.',
+    tags: ['portal-management', 'job-postings'],
+    status: 'Completed',
+    createdBy: 'user_jpt_1',
+    assignedTo: ['user_assoc_1'],
+    requiredAssociates: 1,
+    createdAt: new Date('2023-09-20T16:00:00Z').toISOString(),
+    completedAt: new Date('2023-09-25T12:00:00Z').toISOString(),
+    messages: []
+  },
+];
